@@ -18,6 +18,7 @@ qt_add_library(MyLib STATIC
     bacchannel.h bacchannel.cpp
     gechannel.h gechannel.cpp
     crc_8_coder.h crc_8_coder.cpp
+    crc_x_coder.h crc_x_coder.cpp
 
 )
 target_link_libraries(MyLib PRIVATE Qt6::Core)

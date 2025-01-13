@@ -1,14 +1,16 @@
-#include "crc_8_coder.h"
+#include "crc_x_coder.h"
+#include <vector>
+
 
 using namespace std;
 
-
-CRC_8_Coder::CRC_8_Coder(const uint8_t polynomial)
-:
+template <typename polyT>
+CRC_X_Coder<polyT>::CRC_X_Coder(const polyT polynomial)
+    :
     polynomial{polynomial}
 {}
-
-std::vector<bool> CRC_8_Coder::encode(const std::vector<bool> &informationSequence)
+template <typename polyT>
+std::vector<bool> CRC_X_Coder<polyT>::encode(const std::vector<bool> &informationSequence)
 {
     vector<bool> codeword;
     auto crc = calculateCRC(informationSequence);
@@ -20,8 +22,8 @@ std::vector<bool> CRC_8_Coder::encode(const std::vector<bool> &informationSequen
 
     return codeword;
 }
-
-std::vector<bool> CRC_8_Coder::decode(const std::vector<bool> & codeword)
+template <typename polyT>
+std::vector<bool> CRC_X_Coder<polyT>::decode(const std::vector<bool> & codeword)
 {
     auto information{codeword};
     //if (information.size() >= controlBitsLength)
@@ -30,27 +32,28 @@ std::vector<bool> CRC_8_Coder::decode(const std::vector<bool> & codeword)
     }
     return information;
 }
-
-bool CRC_8_Coder::isValid(const std::vector<bool> &codeword) const noexcept
+template <typename polyT>
+bool CRC_X_Coder<polyT>::isValid(const std::vector<bool> &codeword) const noexcept
 {
     //auto crc  = extractControlBits(codeword);
     //auto info = extractInformationSequence(codeword)
     return extractControlBits(codeword) == calculateCRC(extractInformationSequence(codeword));;
 }
-
-unsigned int CRC_8_Coder::getControlBitsNumber(unsigned int codeDimension) const
+template <typename polyT>
+unsigned int CRC_X_Coder<polyT>::getControlBitsNumber(unsigned int codeDimension) const
 {
     return controlBitsLength;
 }
-
-Coder *CRC_8_Coder::clone() const
+template <typename polyT>
+Coder *CRC_X_Coder<polyT>::clone() const
 {
-    return new CRC_8_Coder{*this};
+    return new CRC_X_Coder<polyT>{*this};
 }
 //*********************************************************************************************************************
-std::vector<bool> CRC_8_Coder::calculateCRC(const std::vector<bool> & info) const
+template <typename polyT>
+std::vector<bool> CRC_X_Coder<polyT>::calculateCRC(const std::vector<bool> & info) const
 {
-    uint8_t crcReg = 0x00;  //
+    polyT crcReg = 0x00;  //
 
     // Dla każdego bitu w danych
     for (auto bit : info) {
@@ -72,13 +75,20 @@ std::vector<bool> CRC_8_Coder::calculateCRC(const std::vector<bool> & info) cons
 
     return crc;
 }
-
-std::vector<bool> CRC_8_Coder::extractInformationSequence(const std::vector<bool> & codeword) const
+template <typename polyT>
+std::vector<bool> CRC_X_Coder<polyT>::extractInformationSequence(const std::vector<bool> & codeword) const
 {
     return vector<bool>{codeword.cbegin(), codeword.cend() - controlBitsLength};
 }
-
-std::vector<bool> CRC_8_Coder::extractControlBits(const std::vector<bool> & codeword) const
+template <typename polyT>
+std::vector<bool> CRC_X_Coder<polyT>::extractControlBits(const std::vector<bool> & codeword) const
 {
     return vector<bool>{codeword.cend() - controlBitsLength, codeword.cend()};
 }
+
+
+// Instancjowanie szablonu dla wybranych typów
+template class CRC_X_Coder<uint8_t>;
+template class CRC_X_Coder<uint16_t>;
+template class CRC_X_Coder<uint32_t>;
+template class CRC_X_Coder<uint64_t>;

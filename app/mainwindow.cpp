@@ -9,6 +9,7 @@
 #include "calculationthread.h"
 #include "chartwindow.h"
 #include "crc_8_coder.h"
+#include "crc_x_coder.h"
 #include "csvexporter.h"
 #include "dialogsimulationinfo.h"
 #include "gechannel.h"
@@ -254,7 +255,7 @@ void MainWindow::on_pBtn_simulation_createCodeDimension_clicked()
             QString hexString = ui->lineE_crc8->text();
             bool ok;
             uint8_t value = hexString.toUInt(&ok, 16); //to hex
-            coder = make_shared<CRC_8_Coder>(value);
+            coder = make_shared<CRC_X_Coder<uint8_t>>(value);
             break;
         }
 
