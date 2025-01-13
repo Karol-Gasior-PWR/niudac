@@ -23,7 +23,7 @@ public:
 
 
     std::vector<TransmissionStruct> & getSimData();
-    void setSimData(const std::vector<TransmissionStruct> &newSimData);
+    void setSimData(const std::vector<TransmissionStruct> & newSimData);
 
 private:
     std::shared_ptr<Coder>  coder;

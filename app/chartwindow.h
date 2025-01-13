@@ -32,6 +32,10 @@ private slots:
     void on_listW_availableSeries_itemDoubleClicked(QListWidgetItem *item);
     void on_listW_availableSeries_itemSelectionChanged();
 
+
+
+    void on_cBox_yAxis_currentIndexChanged(int index);
+
 private:
     void setupMenuButtons();
     void setupChart();
@@ -46,6 +50,8 @@ private:
     QPropertyAnimation * animation_pBtn_rightMenu;
     QIcon icon_leftArrow{"resources/icons/arrow_left.png"};
     QIcon icon_rightArrow{"resources/icons/arrow_right.png"};
+    TransmissionStruct::counterType (TransmissionStruct::*func_ptr)() const;    //pointer to func which, will get simulation axis Y data from data struct
+
 
     bool rightMenuVisible = true;
     bool leftMenuVisible = true;

@@ -22,6 +22,8 @@ chartWindow::chartWindow(std::vector<SimulationData> & simDataVector, QWidget *p
 
     simDataVectorChanged();    //updating series list
     setupChart();
+
+    func_ptr =  & TransmissionStruct::getTotalSendedCodewords;
 }
 
 chartWindow::~chartWindow()
@@ -76,13 +78,9 @@ void chartWindow::drawChart()
         auto series = new QLineSeries;
         auto & data = elem->getSimData();
 
-        qDebug() << "ptr org" << &(simDataVector[0]);
-        qDebug() << "ptr elem" << elem;
-
-
         for(auto line : data)
         {
-            series->append(line.getCodeDimension(), line.getNakCounter());
+            series->append(line.getCodeDimension(), (line.*func_ptr)() );
         }
 
         chart.addSeries(series);
@@ -207,5 +205,44 @@ void chartWindow::on_listW_availableSeries_itemSelectionChanged()
     if(simDataToDraw.size())    //draw only is sth is selected
         drawChart();
 
+}
+
+
+
+
+void chartWindow::on_cBox_yAxis_currentIndexChanged(int index)
+{
+    switch(ui->cBox_yAxis->currentIndex())
+    {
+    case 0: //total sended
+        func_ptr = & TransmissionStruct::getTotalSendedCodewords;
+        break;
+    case 1: //nak
+        func_ptr = & TransmissionStruct::getNakCounter;
+        break;
+    case 2: //ack
+        func_ptr = & TransmissionStruct::getAckCounter;
+        break;
+    case 3: //retransmitted
+        func_ptr = & TransmissionStruct::getRetransmissionCounter;
+        break;
+    case 4: //failed
+        func_ptr = & TransmissionStruct::getFailedTransmissionCounter;
+        break;
+    case 5: //wrong detected false
+        func_ptr = & TransmissionStruct::getWrongDetectedFalseCodewords;
+        break;
+    case 6: //wrong detected positive
+        func_ptr = & TransmissionStruct::getWrongDetectedPositiveCodewords;
+        break;
+    case 7:     //corect sended
+        func_ptr = & TransmissionStruct::getCorrectSendedCodewords;
+        break;
+    case 8:     //corect sended
+        func_ptr = & TransmissionStruct::getRetransmittedBitsNumber;
+        break;
+    }
+
+    drawChart();
 }
 

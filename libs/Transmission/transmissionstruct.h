@@ -24,7 +24,6 @@ public:
 public:
     operator std::string() const;
 
-    counterType getReTransmittedBitsNumber() const;
 
     counterType getCodeDimension() const;
     void setCodeDimension(counterType newCodeDimension);
@@ -49,14 +48,19 @@ public:
     counterType getCorrectSendedCodewords() const;
     void setCorrectSendedCodewords(counterType newCorrectSendedCodewords);
 
+
+    counterType getWrongDetectedWordsNumber() const;
+    counterType getRetransmittedBitsNumber() const;
+    counterType getTotalSendedBits() const;
+
 private:
-    counterType codeDimension = 0;
+    counterType codeDimension = 0;      //length of information sequence
     counterType controlBitsNumber = 0;
     counterType wordsGivenToSend = 0;
     counterType totalSendedCodewords= 0;    //all sended codewords, count retransmitted codewords
     counterType nakCounter = 0;
     counterType ackCounter = 0;
-    counterType retransmissionCounter = 0;
+    counterType retransmissionCounter = 0;      //count how many word were retransmitted
     counterType failedTransmissionCounter = 0;
     counterType wrongDetectedFalseCodewords= 0; //corrupted information inside codeword detected as UNcorrupted
     counterType wrongDetectedPositiveCodewords= 0; //uncorrupted information inside codeword detected as corrupted

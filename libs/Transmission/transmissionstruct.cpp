@@ -152,9 +152,19 @@ void TransmissionStruct::setCorrectSendedCodewords(counterType newCorrectSendedC
 {
     correctSendedCodewords = newCorrectSendedCodewords;
 }
+
+TransmissionStruct::counterType TransmissionStruct::getTotalSendedBits() const
+{
+    return totalSendedCodewords * (codeDimension+controlBitsNumber);
+}
+
+TransmissionStruct::counterType TransmissionStruct::getWrongDetectedWordsNumber() const
+{
+    return wrongDetectedFalseCodewords + wrongDetectedPositiveCodewords;
+}
 //-------------------------------------------------------------------------------------------------
 
-TransmissionStruct::counterType TransmissionStruct::getReTransmittedBitsNumber() const
+TransmissionStruct::counterType TransmissionStruct::getRetransmittedBitsNumber() const
 {
     return (retransmissionCounter * (codeDimension + controlBitsNumber));
 }

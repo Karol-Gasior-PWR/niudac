@@ -133,7 +133,7 @@
          <enum>QFrame::Shape::StyledPanel</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="page_axis">
          <widget class="QLabel" name="label">
@@ -161,7 +161,7 @@
           <property name="title">
            <string>X Axis</string>
           </property>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="cBox_xAxis">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -171,24 +171,11 @@
             </rect>
            </property>
           </widget>
-          <widget class="QLabel" name="label_5">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>70</y>
-             <width>66</width>
-             <height>18</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Name</string>
-           </property>
-          </widget>
           <widget class="QLabel" name="label_6">
            <property name="geometry">
             <rect>
-             <x>10</x>
-             <y>120</y>
+             <x>20</x>
+             <y>70</y>
              <width>66</width>
              <height>18</height>
             </rect>
@@ -200,8 +187,8 @@
           <widget class="QLabel" name="label_7">
            <property name="geometry">
             <rect>
-             <x>90</x>
-             <y>120</y>
+             <x>20</x>
+             <y>100</y>
              <width>66</width>
              <height>18</height>
             </rect>
@@ -223,26 +210,170 @@
             <string>scale</string>
            </property>
           </widget>
+          <widget class="QSpinBox" name="sBox_x_start">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>70</y>
+             <width>44</width>
+             <height>27</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="sBox_x_stop">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>110</y>
+             <width>44</width>
+             <height>27</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="sBox_x_scale">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>150</y>
+             <width>44</width>
+             <height>27</height>
+            </rect>
+           </property>
+          </widget>
          </widget>
          <widget class="QGroupBox" name="groupBox_2">
           <property name="geometry">
            <rect>
-            <x>20</x>
-            <y>320</y>
-            <width>120</width>
-            <height>80</height>
+            <x>10</x>
+            <y>290</y>
+            <width>171</width>
+            <height>201</height>
            </rect>
           </property>
           <property name="title">
            <string>Y Axis</string>
           </property>
-          <widget class="QComboBox" name="comboBox_2">
+          <widget class="QComboBox" name="cBox_yAxis">
            <property name="geometry">
             <rect>
-             <x>30</x>
-             <y>40</y>
-             <width>86</width>
+             <x>10</x>
+             <y>30</y>
+             <width>151</width>
              <height>26</height>
+            </rect>
+           </property>
+           <item>
+            <property name="text">
+             <string>Total sended codewords</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Nak</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Ack</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Retransmitted words</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Failed</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Not detected corrupted words</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Uncorrupted words detected as corrupted</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Correct sended words</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Retransmitted bits </string>
+            </property>
+           </item>
+          </widget>
+          <widget class="QLabel" name="label_10">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>70</y>
+             <width>66</width>
+             <height>18</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Start</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_11">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>100</y>
+             <width>66</width>
+             <height>18</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Stop</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_12">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>150</y>
+             <width>66</width>
+             <height>18</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>scale</string>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="sBox_y_scale">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>150</y>
+             <width>44</width>
+             <height>27</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="sBox_y_start">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>70</y>
+             <width>44</width>
+             <height>27</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QSpinBox" name="sBox_y_stop">
+           <property name="geometry">
+            <rect>
+             <x>80</x>
+             <y>110</y>
+             <width>44</width>
+             <height>27</height>
             </rect>
            </property>
           </widget>
