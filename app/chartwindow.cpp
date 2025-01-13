@@ -182,8 +182,28 @@ void chartWindow::on_actionData_Series_triggered()
 
 void chartWindow::on_listW_availableSeries_itemDoubleClicked(QListWidgetItem *item)
 {
+    /*
     SimulationData * selectedObject = item->data(Qt::UserRole).value<SimulationData*>();    //reading pointer to choosen object
     simDataToDraw.push_back(selectedObject);
+
+    drawChart();
+*/
+}
+
+
+void chartWindow::on_listW_availableSeries_itemSelectionChanged()
+{
+
+    QList<QListWidgetItem *> selectedItems = ui->listW_availableSeries->selectedItems();
+    simDataToDraw.clear();
+    simDataToDraw.resize(selectedItems.size());
+    // Wyświetlanie zaznaczonych elementów w konsoli
+    for (QListWidgetItem *item : selectedItems)
+    {
+        SimulationData * selectedObject = item->data(Qt::UserRole).value<SimulationData*>();    //reading pointer to choosen object
+        simDataToDraw.push_back(selectedObject);
+    }
+
 
     drawChart();
 }

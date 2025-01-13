@@ -133,7 +133,7 @@
          <enum>QFrame::Shape::StyledPanel</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>2</number>
         </property>
         <widget class="QWidget" name="page_axis">
          <widget class="QLabel" name="label">
@@ -306,6 +306,9 @@
             </property>
             <property name="whatsThis">
              <string>bleh</string>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SelectionMode::MultiSelection</enum>
             </property>
            </widget>
           </item>

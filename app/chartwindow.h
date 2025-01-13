@@ -30,6 +30,7 @@ private slots:
     void on_actionAxis_Menu_triggered();
     void on_actionData_Series_triggered();
     void on_listW_availableSeries_itemDoubleClicked(QListWidgetItem *item);
+    void on_listW_availableSeries_itemSelectionChanged();
 
 private:
     void setupMenuButtons();
@@ -39,7 +40,7 @@ private:
 private:
     Ui::chartWindow *ui;
     std::vector<SimulationData> & simDataVector;
-    std::vector<SimulationData *> simDataToDraw;
+    std::vector<SimulationData *>  simDataToDraw;
 
     QPropertyAnimation * animation_pBtn_leftMenu;
     QPropertyAnimation * animation_pBtn_rightMenu;
