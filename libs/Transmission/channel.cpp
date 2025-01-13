@@ -25,6 +25,14 @@ void Channel::resetRandomEngine()
 {
     generator = mt19937{seed};
 }
+
+std::vector<bool> Channel::simulateInterference(std::vector<bool> &codeword)
+{
+    auto codewordWithNoise {codeword};
+    applyInterference(codewordWithNoise);
+    return codewordWithNoise;
+}
+
 //---------------------------------------------------------------------------------------------------------------------
 
 //=====================================================================================================================

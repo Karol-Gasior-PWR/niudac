@@ -10,13 +10,7 @@ BSCChannel::BSCChannel(unsigned int seed, double transitionPropability)
 
 }
 //=====================================================================================================================
-std::vector<bool> BSCChannel::simulateInterference(std::vector<bool> & codeword)
-{
-    auto codewordWithNoise {codeword};
-    applyInterference(codewordWithNoise);
 
-    return codewordWithNoise;
-}
 
 void BSCChannel::applyInterference(std::vector<bool> & codeword)
 {

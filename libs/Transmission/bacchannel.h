@@ -7,7 +7,6 @@ class BACChannel: public Channel
 public:
     BACChannel(unsigned int seed, double transProbFromZero, double transProbFromOne);
 public:
-    virtual std::vector<bool> simulateInterference(std::vector<bool> & codeword) override;
     virtual void applyInterference(std::vector<bool> & codeword) override;
     virtual Channel * clone() const  override;
 

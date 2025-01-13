@@ -28,8 +28,8 @@ public:
     virtual ~ Channel() = default;
 //=====================================================================================================================
 public:
+    virtual std::vector<bool> simulateInterference(std::vector<bool> & codeword);
     void resetRandomEngine();
-    virtual std::vector<bool> simulateInterference(std::vector<bool> & codeword) = 0;
     virtual void applyInterference(std::vector<bool> & codeword) = 0;
     virtual Channel * clone() const  = 0;
 //=====================================================================================================================

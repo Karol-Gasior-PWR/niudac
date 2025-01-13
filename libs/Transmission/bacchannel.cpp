@@ -9,14 +9,6 @@ BACChannel::BACChannel(unsigned int seed, double transProbFromZero, double trans
 
 }
 
-std::vector<bool> BACChannel::simulateInterference(std::vector<bool> & codeword)
-{
-    auto codewordWithNoise {codeword};
-    applyInterference(codewordWithNoise);
-
-    return codewordWithNoise;
-}
-
 void BACChannel::applyInterference(std::vector<bool> & codeword)
 {
     for(int i=0; i < codeword.size(); ++i)

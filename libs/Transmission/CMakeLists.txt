@@ -16,6 +16,7 @@ qt_add_library(MyLib STATIC
     simulation.h simulation.cpp
     simulationdata.h simulationdata.cpp
     bacchannel.h bacchannel.cpp
+    gechannel.h gechannel.cpp
 
 )
 target_link_libraries(MyLib PRIVATE Qt6::Core)

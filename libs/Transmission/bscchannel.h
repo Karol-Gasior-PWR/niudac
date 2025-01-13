@@ -8,7 +8,6 @@ class BSCChannel : public Channel
 {
 public:
     explicit BSCChannel(unsigned int seed, double transitionPropability);  //transition probability 0-1
-    std::vector<bool> simulateInterference(std::vector<bool> & codeword) override;
     void applyInterference(std::vector<bool> & codeword) override;
     Channel * clone() const override;
     double getTransitionPropability();
