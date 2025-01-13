@@ -252,10 +252,7 @@ void MainWindow::on_pBtn_simulation_createCodeDimension_clicked()
         }
         case CoderTyp::crc:
         {
-            QString hexString = ui->lineE_crc8->text();
-            bool ok;
-            uint8_t value = hexString.toUInt(&ok, 16); //to hex
-            coder = make_shared<CRC_X_Coder<uint8_t>>(value);
+            coder = chooseCRCCoder();
             break;
         }
 
@@ -313,6 +310,29 @@ void MainWindow::updateDataVectorsWidgets()
     emit simDataVectorChanged();
 }
 
+std::shared_ptr<Coder> MainWindow::chooseCRCCoder()
+{
+    QString hexString = ui->lineE_crc->text();
+    bool ok;
+    uint64_t value = hexString.toUInt(&ok, 16); //to hex
+    if(!ok)
+        QMessageBox::critical(this, "Wrong polynomial", "Unpredicted failure by conversin polynomial");
+
+    switch( ui->cBox_crc->currentIndex() )
+    {
+    case 0: //crc-8
+        return  make_shared<CRC_X_Coder<uint8_t>>(value);
+    case 1: //16
+        return  make_shared<CRC_X_Coder<uint16_t>>(value);
+    case 2: //32
+        return  make_shared<CRC_X_Coder<uint32_t>>(value);
+    case 3: //64
+        return  make_shared<CRC_X_Coder<uint64_t>>(value);
+    default:
+        return  make_shared<CRC_X_Coder<uint8_t>>(value);
+    }
+}
+
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::on_dSpinB_channel_ge_toBad_valueChanged(double arg1)
 {
@@ -352,4 +372,36 @@ void MainWindow::on_hSlider_channel_ge_transBad_valueChanged(int value)
 //---------------------------------------------------------------------------------------------------------------------
 
 
+
+
+void MainWindow::on_cBox_crc_currentIndexChanged(int index)
+{
+    switch(index)
+    {
+        case 0: //crc-8
+        ui->lineE_crc->setInputMask(QString{2,'H'});
+        ui->lineE_crc->setMaxLength(2);
+        ui->lineE_crc->setText("70");
+            break;
+        case 1: //16
+            ui->lineE_crc->setInputMask(QString{4,'H'});
+            ui->lineE_crc->setMaxLength(4);
+            ui->lineE_crc->setText("70");
+            break;
+        case 2: //32
+            ui->lineE_crc->setInputMask(QString{8,'H'});
+            ui->lineE_crc->setMaxLength(6);
+            ui->lineE_crc->setText("70");
+            break;
+        case 3: //64
+            ui->lineE_crc->setInputMask(QString{16,'H'});
+            ui->lineE_crc->setMaxLength(2);
+            ui->lineE_crc->setText("70");
+            break;
+        default:
+            ui->lineE_crc->setInputMask(QString{2,'H'});
+            ui->lineE_crc->setMaxLength(2);
+            ui->lineE_crc->setText("70");
+    }
+}
 

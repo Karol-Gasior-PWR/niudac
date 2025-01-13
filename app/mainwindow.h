@@ -63,10 +63,14 @@ private slots:
 
     void on_hSlider_channel_ge_transBad_valueChanged(int value);
 
+    void on_cBox_crc_currentIndexChanged(int index);
+
 public slots:
     void updateDataVectorsWidgets();
 signals:
     void simDataVectorChanged();
+private:
+    std::shared_ptr<Coder> chooseCRCCoder();
 private:
     Ui::MainWindow *ui;
 
