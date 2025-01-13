@@ -1,6 +1,14 @@
 #include "gechannel.h"
 
-GEChannel::GEChannel(unsigned int seed, double transProbabilityInBadState, double transProbabilityInGoodState, std::pair<double, double> stateTransProb)
+GEChannel::GEChannel(unsigned int seed
+                     , double transProbabilityInBadState
+                     , double transProbabilityInGoodState
+                     , std::pair<double, double> stateTransProb)
+:
+    Channel{seed},
+    transProbabilityInBadState{transProbabilityInBadState},
+    transProbabilityInGoodState{transProbabilityInGoodState},
+    stateTransProb{stateTransProb}
 {
 
 }

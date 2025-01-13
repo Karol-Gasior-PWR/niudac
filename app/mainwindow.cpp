@@ -8,8 +8,10 @@
 #include "bscchannel.h"
 #include "calculationthread.h"
 #include "chartwindow.h"
+#include "crc_8_coder.h"
 #include "csvexporter.h"
 #include "dialogsimulationinfo.h"
+#include "gechannel.h"
 #include "paritycoder.h"
 #include "threadmanager.h"
 #include "ui_mainwindow.h"
@@ -40,6 +42,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
 
     defaultPath = QCoreApplication::applicationDirPath()+"/"+::default_path;
     QFileInfo fileInfo(defaultPath);
@@ -237,15 +241,23 @@ void MainWindow::on_pBtn_simulation_createCodeDimension_clicked()
     CoderTyp coderTyp = static_cast<CoderTyp> (ui->cBox_page_coder->currentIndex());
     switch(coderTyp)
     {
-    case CoderTyp::parity:
-        if(ui->rBtn_parity_even->isChecked())
-            coder = make_shared<ParityCoder>(ParityCoder::ParityMode::even);
-        else
-            coder = make_shared<ParityCoder>(ParityCoder::ParityMode::odd);
-        break;
+        case CoderTyp::parity:
+        {
+            if(ui->rBtn_parity_even->isChecked())
+                coder = make_shared<ParityCoder>(ParityCoder::ParityMode::even);
+            else
+                coder = make_shared<ParityCoder>(ParityCoder::ParityMode::odd);
+            break;
+        }
+        case CoderTyp::crc:
+        {
+            QString hexString = ui->lineE_crc8->text();
+            bool ok;
+            uint8_t value = hexString.toUInt(&ok, 16); //to hex
+            coder = make_shared<CRC_8_Coder>(value);
+            break;
+        }
 
-    case CoderTyp::crc:
-        break;
     }
     //2 making Channel
     shared_ptr<Channel> channel;
@@ -259,6 +271,14 @@ void MainWindow::on_pBtn_simulation_createCodeDimension_clicked()
         channel = make_shared<BACChannel>(seed, ui->dSpinB_channel_bac0->value()/100, ui->dSpinB_channel_bac1->value()/100);
         break;
     case ChannelTyp::eliotGillber:
+        {
+            double transGood = ui->dSpinB_channel_ge_trans_good->value()/100;
+            double transBad = ui->dSpinB_channel_ge_transBad->value()/100;
+            double toGood = ui->dSpinB_channel_ge_toGood->value()/100;
+            double toBad = ui->dSpinB_channel_ge_toBad->value()/100;
+
+            channel = make_shared<GEChannel>(seed, transBad, transGood, std::pair{toBad,toGood});
+        }
         break;
     case ChannelTyp::burstError:
         break;
@@ -291,4 +311,44 @@ void MainWindow::updateDataVectorsWidgets()
     }
     emit simDataVectorChanged();
 }
+
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::on_dSpinB_channel_ge_toBad_valueChanged(double arg1)
+{
+    ui->hSlider_channel_ge_toBad->setValue(arg1);
+}
+void MainWindow::on_hSlider_channel_ge_toBad_valueChanged(int value)
+{
+    ui->dSpinB_channel_ge_toBad->setValue(value);
+}
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::on_dSpinB_channel_ge_toGood_valueChanged(double arg1)
+{
+    ui->hSlider_channel_ge_toGood->setValue(arg1);
+}
+void MainWindow::on_hSlider_channel_ge_toGood_valueChanged(int value)
+{
+    ui->dSpinB_channel_ge_toGood->setValue(value);
+}
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::on_dSpinB_channel_ge_trans_good_valueChanged(double arg1)
+{
+    ui->hSlider_channel_ge_trans_good->setValue(arg1);
+}
+void MainWindow::on_hSlider_channel_ge_trans_good_valueChanged(int value)
+{
+    ui->dSpinB_channel_ge_trans_good->setValue(value);
+}
+//---------------------------------------------------------------------------------------------------------------------
+void MainWindow::on_dSpinB_channel_ge_transBad_valueChanged(double arg1)
+{
+    ui->hSlider_channel_ge_transBad->setValue(arg1);
+}
+void MainWindow::on_hSlider_channel_ge_transBad_valueChanged(int value)
+{
+    ui->dSpinB_channel_ge_transBad->setValue(value);
+}
+//---------------------------------------------------------------------------------------------------------------------
+
+
 

@@ -48,6 +48,21 @@ private slots:
     void on_spinBox_maxCodeDimension_valueChanged(int arg1);
     void on_pBtn_simulation_createCodeDimension_clicked();
 
+    void on_dSpinB_channel_ge_toBad_valueChanged(double arg1);
+    void on_hSlider_channel_ge_toBad_valueChanged(int value);
+
+    void on_dSpinB_channel_ge_toGood_valueChanged(double arg1);
+
+    void on_hSlider_channel_ge_toGood_valueChanged(int value);
+
+    void on_dSpinB_channel_ge_trans_good_valueChanged(double arg1);
+
+    void on_hSlider_channel_ge_trans_good_valueChanged(int value);
+
+    void on_dSpinB_channel_ge_transBad_valueChanged(double arg1);
+
+    void on_hSlider_channel_ge_transBad_valueChanged(int value);
+
 public slots:
     void updateDataVectorsWidgets();
 signals:
