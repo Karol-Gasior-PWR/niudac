@@ -9,12 +9,12 @@ Channel::Channel(unsigned int seed)
 
     distributor(0.0, 1.0)
 {
-    if(seed != 0)
+    if(seed != 0)   //if seed ori=ovided by user
     {
         this->seed = seed;
         generator = mt19937(seed);
     }
-    else
+    else    // user has not provided a seed
     {
         this->seed = random_device{}();
         generator = mt19937{this->seed};

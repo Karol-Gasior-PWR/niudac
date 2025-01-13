@@ -2,10 +2,10 @@
 
 using namespace std;
 
-BSCChannel::BSCChannel(unsigned int seed, double atransitionPropability)
+BSCChannel::BSCChannel(unsigned int seed, double transitionPropability)
 :
     Channel(seed),
-    transitionPropability(atransitionPropability)
+    transitionPropability(transitionPropability)
 {
 
 }

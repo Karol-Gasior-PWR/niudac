@@ -4,6 +4,7 @@
 #include <QInputDialog>
 
 #include "addsimulationdialog.h"
+#include "bacchannel.h"
 #include "bscchannel.h"
 #include "calculationthread.h"
 #include "chartwindow.h"
@@ -255,7 +256,7 @@ void MainWindow::on_pBtn_simulation_createCodeDimension_clicked()
         channel = make_shared<BSCChannel>(seed, ui->dSpinB_channel_bsc->value()/100);   //'/100' because it is in %, and channel is 0-1
         break;
     case ChannelTyp::bac:
-        //channel = make_shared<BACChannel>(seed, ui->dSpinB_channel_bac0->value(), ///);
+        channel = make_shared<BACChannel>(seed, ui->dSpinB_channel_bac0->value()/100, ui->dSpinB_channel_bac1->value()/100);
         break;
     case ChannelTyp::eliotGillber:
         break;

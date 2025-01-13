@@ -83,7 +83,7 @@ void chartWindow::drawChart()
 
         for(auto line : data)
         {
-            series->append(line.getCodeDimension(), line.getAckCounter());
+            series->append(line.getCodeDimension(), line.getNakCounter());
         }
 
         chart.addSeries(series);

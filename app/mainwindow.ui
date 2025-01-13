@@ -638,7 +638,7 @@
            <enum>QFrame::Shape::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_channel">
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -717,7 +717,7 @@
             <item>
              <widget class="QStackedWidget" name="stackedW_channel">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_bsc">
                <property name="sizePolicy">
@@ -1048,7 +1048,7 @@
             <item>
              <widget class="QStackedWidget" name="stackedW_coder">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="page_parity">
                <property name="maximumSize">
@@ -1310,12 +1310,18 @@
                  </font>
                 </property>
                 <property name="text">
-                 <string>Changing param</string>
+                 <string>Iteration parameter</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="cBox_simParam"/>
+               <widget class="QComboBox" name="cBox_simParam">
+                <item>
+                 <property name="text">
+                  <string>code dimension</string>
+                 </property>
+                </item>
+               </widget>
               </item>
              </layout>
             </item>

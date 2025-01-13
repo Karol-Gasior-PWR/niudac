@@ -15,6 +15,7 @@ qt_add_library(MyLib STATIC
     transmissionstruct.h transmissionstruct.cpp
     simulation.h simulation.cpp
     simulationdata.h simulationdata.cpp
+    bacchannel.h bacchannel.cpp
 
 )
 target_link_libraries(MyLib PRIVATE Qt6::Core)
