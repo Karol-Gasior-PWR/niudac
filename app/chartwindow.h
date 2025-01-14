@@ -36,9 +36,20 @@ private slots:
 
     void on_cBox_yAxis_currentIndexChanged(int index);
 
+    void on_sBox_y_start_valueChanged(int arg1);
+
+    void on_sBox_y_stop_valueChanged(int arg1);
+
+    void on_sBox_y_scale_valueChanged(int arg1);
+
+    void on_sBox_x_start_valueChanged(int arg1);
+
+    void on_sBox_x_stop_valueChanged(int arg1);
+
 private:
     void setupMenuButtons();
     void setupChart();
+    void setupMenus();
 
     void drawChart();
 private:
@@ -53,8 +64,8 @@ private:
     TransmissionStruct::counterType (TransmissionStruct::*func_ptr)() const;    //pointer to func which, will get simulation axis Y data from data struct
 
 
-    bool rightMenuVisible = true;
-    bool leftMenuVisible = true;
+    bool rightMenuVisible;
+    bool leftMenuVisible;
 
     QChart chart;
     QValueAxis axisY;

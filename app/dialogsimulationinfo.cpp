@@ -40,6 +40,7 @@ DialogSimulationInfo::~DialogSimulationInfo()
 
 void DialogSimulationInfo::enable()
 {
+    duckMovie.stop();
     timer.stop();
     ui->buttonBox->setEnabled(true);
 }

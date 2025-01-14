@@ -25,17 +25,17 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Light">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>52</red>
-        <green>143</green>
+        <red>203</red>
+        <green>227</green>
         <blue>255</blue>
        </color>
       </brush>
@@ -43,27 +43,27 @@
      <colorrole role="Midlight">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>39</red>
-        <green>119</green>
-        <blue>217</blue>
+        <red>150</red>
+        <green>193</green>
+        <blue>244</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Mid">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>17</red>
-        <green>63</green>
-        <blue>120</blue>
+        <red>65</red>
+        <green>107</green>
+        <blue>156</blue>
        </color>
       </brush>
      </colorrole>
@@ -106,9 +106,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
@@ -124,9 +124,9 @@
      <colorrole role="AlternateBase">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>140</red>
-        <green>175</green>
-        <blue>217</blue>
+        <red>176</red>
+        <green>207</green>
+        <blue>244</blue>
        </color>
       </brush>
      </colorrole>
@@ -180,17 +180,17 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Light">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>52</red>
-        <green>143</green>
+        <red>203</red>
+        <green>227</green>
         <blue>255</blue>
        </color>
       </brush>
@@ -198,27 +198,27 @@
      <colorrole role="Midlight">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>39</red>
-        <green>119</green>
-        <blue>217</blue>
+        <red>150</red>
+        <green>193</green>
+        <blue>244</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Mid">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>17</red>
-        <green>63</green>
-        <blue>120</blue>
+        <red>65</red>
+        <green>107</green>
+        <blue>156</blue>
        </color>
       </brush>
      </colorrole>
@@ -261,9 +261,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
@@ -279,9 +279,9 @@
      <colorrole role="AlternateBase">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>140</red>
-        <green>175</green>
-        <blue>217</blue>
+        <red>176</red>
+        <green>207</green>
+        <blue>244</blue>
        </color>
       </brush>
      </colorrole>
@@ -326,26 +326,26 @@
      <colorrole role="WindowText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Light">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>52</red>
-        <green>143</green>
+        <red>203</red>
+        <green>227</green>
         <blue>255</blue>
        </color>
       </brush>
@@ -353,36 +353,36 @@
      <colorrole role="Midlight">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>39</red>
-        <green>119</green>
-        <blue>217</blue>
+        <red>150</red>
+        <green>193</green>
+        <blue>244</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Dark">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Mid">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>17</red>
-        <green>63</green>
-        <blue>120</blue>
+        <red>65</red>
+        <green>107</green>
+        <blue>156</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Text">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
@@ -398,27 +398,27 @@
      <colorrole role="ButtonText">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
@@ -434,9 +434,9 @@
      <colorrole role="AlternateBase">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>26</red>
-        <green>95</green>
-        <blue>180</blue>
+        <red>98</red>
+        <green>160</green>
+        <blue>234</blue>
        </color>
       </brush>
      </colorrole>
@@ -461,18 +461,18 @@
      <colorrole role="PlaceholderText">
       <brush brushstyle="SolidPattern">
        <color alpha="127">
-        <red>13</red>
-        <green>47</green>
-        <blue>90</blue>
+        <red>49</red>
+        <green>80</green>
+        <blue>117</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Accent">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>34</red>
-        <green>123</green>
-        <blue>234</blue>
+        <red>156</red>
+        <green>201</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -552,9 +552,27 @@
             <rect>
              <x>140</x>
              <y>150</y>
-             <width>88</width>
-             <height>26</height>
+             <width>125</width>
+             <height>65</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
            </property>
            <property name="text">
             <string>Source</string>
@@ -565,12 +583,36 @@
             <rect>
              <x>300</x>
              <y>150</y>
-             <width>88</width>
-             <height>26</height>
+             <width>125</width>
+             <height>65</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
            </property>
            <property name="text">
             <string>Encoder</string>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
            </property>
           </widget>
           <widget class="QPushButton" name="pBtn_model_channel">
@@ -578,9 +620,27 @@
             <rect>
              <x>470</x>
              <y>250</y>
-             <width>88</width>
-             <height>26</height>
+             <width>125</width>
+             <height>65</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
            </property>
            <property name="text">
             <string>Channel</string>
@@ -591,9 +651,27 @@
             <rect>
              <x>300</x>
              <y>300</y>
-             <width>88</width>
-             <height>26</height>
+             <width>125</width>
+             <height>65</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
            </property>
            <property name="text">
             <string>Encoder</string>
@@ -607,9 +685,27 @@
             <rect>
              <x>140</x>
              <y>300</y>
-             <width>88</width>
-             <height>26</height>
+             <width>125</width>
+             <height>65</height>
             </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>65</height>
+            </size>
            </property>
            <property name="text">
             <string>Digital Sink</string>
@@ -638,7 +734,7 @@
            <enum>QFrame::Shape::StyledPanel</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page_channel">
            <layout class="QVBoxLayout" name="verticalLayout">
@@ -689,12 +785,12 @@
               </property>
               <item>
                <property name="text">
-                <string>BSC (Binary Symmetric)</string>
+                <string>BSC</string>
                </property>
               </item>
               <item>
                <property name="text">
-                <string>BAC (Binary Asymmetric)</string>
+                <string>BAC</string>
                </property>
               </item>
               <item>
@@ -717,7 +813,7 @@
             <item>
              <widget class="QStackedWidget" name="stackedW_channel">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="page_bsc">
                <property name="sizePolicy">
@@ -729,7 +825,7 @@
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
-                 <height>150</height>
+                 <height>250</height>
                 </size>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -751,6 +847,9 @@
                        </property>
                        <property name="maximum">
                         <double>100.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.000100000000000</double>
                        </property>
                       </widget>
                      </item>
@@ -803,6 +902,28 @@
                      </property>
                     </widget>
                    </item>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_11">
+                     <property name="title">
+                      <string>BER in PPM</string>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_23">
+                      <item>
+                       <widget class="QDoubleSpinBox" name="dspinBox_channel_bsc_ber">
+                        <property name="decimals">
+                         <number>5</number>
+                        </property>
+                        <property name="maximum">
+                         <double>1000000.000000000000000</double>
+                        </property>
+                        <property name="singleStep">
+                         <double>0.000100000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
                   </layout>
                  </widget>
                 </item>
@@ -849,6 +970,9 @@
                        </property>
                        <property name="maximum">
                         <double>100.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.000100000000000</double>
                        </property>
                       </widget>
                      </item>
@@ -925,6 +1049,9 @@
                        </property>
                        <property name="maximum">
                         <double>100.000000000000000</double>
+                       </property>
+                       <property name="singleStep">
+                        <double>0.000100000000000</double>
                        </property>
                       </widget>
                      </item>
@@ -1024,6 +1151,9 @@
                           <property name="maximum">
                            <double>100.000000000000000</double>
                           </property>
+                          <property name="singleStep">
+                           <double>0.000100000000000</double>
+                          </property>
                          </widget>
                         </item>
                         <item>
@@ -1099,6 +1229,9 @@
                           </property>
                           <property name="maximum">
                            <double>100.000000000000000</double>
+                          </property>
+                          <property name="singleStep">
+                           <double>0.000100000000000</double>
                           </property>
                          </widget>
                         </item>

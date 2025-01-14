@@ -65,10 +65,17 @@ private slots:
 
     void on_cBox_crc_currentIndexChanged(int index);
 
+
+    void on_dspinBox_channel_bsc_ber_valueChanged(double arg1);
+
 public slots:
     void updateDataVectorsWidgets();
 signals:
     void simDataVectorChanged();
+private:    //private functions
+    void updateModelChannelButton();
+    void setModelSourceButtonText(QString txt);
+    void setModelCoderButtonText();
 private:
     std::shared_ptr<Coder> chooseCRCCoder();
 private:
@@ -79,5 +86,8 @@ private:
     QString defaultPath;
     std::string filePath;
     DialogSimulationInfo * infoDialog;
+
+
+    static constexpr int maxTextLengthInButton = 15;
 };
 #endif // MAINWINDOW_H

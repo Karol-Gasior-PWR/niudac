@@ -43,9 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
-
     defaultPath = QCoreApplication::applicationDirPath()+"/"+::default_path;
     QFileInfo fileInfo(defaultPath);
     if (!fileInfo.exists() || !fileInfo.isFile()) {
@@ -53,9 +50,14 @@ MainWindow::MainWindow(QWidget *parent)
     }
     filePath = defaultPath.toStdString();
 
-
+    //setting stakced widget pages
     ui->stackedW_channel->setCurrentIndex(ui->cBox_page_channel->currentIndex());
     ui->stackedW_coder->setCurrentIndex(ui->cBox_page_coder->currentIndex());
+
+    //setting model buttons text
+    updateModelChannelButton();
+    setModelSourceButtonText(defaultPath);
+    setModelCoderButtonText();
 }
 //---------------------------------------------------------------------------------------------------------------------
 MainWindow::~MainWindow()
@@ -66,16 +68,28 @@ MainWindow::~MainWindow()
 void MainWindow::on_cBox_page_channel_currentIndexChanged(int index)
 {
     ui->stackedW_channel->setCurrentIndex(index);
+
+    updateModelChannelButton();
+
 }
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::on_hSlider_channel_bsc_valueChanged(int value)
 {
     ui->dSpinB_channel_bsc->setValue(value);
+    ui->dspinBox_channel_bsc_ber->setValue( value * (1e+4) );
 }
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::on_dSpinB_channel_bsc_valueChanged(double arg1)
 {
     ui->hSlider_channel_bsc->setValue(arg1);
+    ui->dspinBox_channel_bsc_ber->setValue( arg1 * (1e+4) );
+}
+void MainWindow::on_dspinBox_channel_bsc_ber_valueChanged(double arg1)
+{
+    auto value = arg1 * (1e-4); //BER PPM to %
+
+    ui->dSpinB_channel_bsc->setValue(value);
+    ui->hSlider_channel_bsc->setValue(value);
 }
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::on_dSpinB_channel_bac0_valueChanged(double arg1)
@@ -103,6 +117,8 @@ void MainWindow::on_hSlider_channel_bac1_valueChanged(int value)
 void MainWindow::on_cBox_page_coder_currentIndexChanged(int index)
 {
     ui->stackedW_coder->setCurrentIndex(index);
+
+    setModelCoderButtonText();
 }
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::on_actionView_list_triggered()
@@ -138,10 +154,14 @@ void MainWindow::on_pBtn_model_source_clicked()
 {
     QFileDialog fileDialog{this, "Transmission data", QCoreApplication::applicationDirPath()};
     QString choosenFilepath = fileDialog.getOpenFileName();
-    if(! choosenFilepath.isEmpty())
-        filePath = choosenFilepath.toStdString();
+    if(choosenFilepath.isEmpty())
+        return;
 
-    //ui->stackedW_sideMenu->setCurrentIndex(3);
+    filePath = choosenFilepath.toStdString();
+
+
+    setModelSourceButtonText(choosenFilepath);
+
 }
 //---------------------------------------------------------------------------------------------------------------------
 void MainWindow::on_pBtn_model_encoder_clicked()
@@ -310,6 +330,41 @@ void MainWindow::updateDataVectorsWidgets()
     emit simDataVectorChanged();
 }
 
+void MainWindow::updateModelChannelButton()
+{
+    QString channelName = ui->cBox_page_channel->currentText();
+    ui->pBtn_model_channel->setText("Channel\n" + channelName);
+}
+
+void MainWindow::setModelSourceButtonText(QString txt)
+{
+    QFileInfo fileInfo(txt);
+    txt = fileInfo.fileName();
+
+    if(txt.length() > maxTextLengthInButton)
+        txt = txt.left(maxTextLengthInButton) + "...";
+
+    ui->pBtn_model_source->setText("Source\n" + txt);
+}
+
+void MainWindow::setModelCoderButtonText()
+{
+    QString coderTxt;
+
+    switch(ui->cBox_page_coder->currentIndex())
+    {
+    case 0 : //parity coder
+        coderTxt = "Parity";
+        break;
+    case 1: //crc
+        coderTxt = ui->cBox_crc->currentText();
+        break;
+    }
+
+    ui->pBtn_model_encoder->setText("Encoder\n" + coderTxt);
+    ui->pBtn_model_decoder->setText("Decoder\n" + coderTxt);
+}
+
 std::shared_ptr<Coder> MainWindow::chooseCRCCoder()
 {
     QString hexString = ui->lineE_crc->text();
@@ -376,32 +431,38 @@ void MainWindow::on_hSlider_channel_ge_transBad_valueChanged(int value)
 
 void MainWindow::on_cBox_crc_currentIndexChanged(int index)
 {
+    setModelCoderButtonText();
+
     switch(index)
     {
         case 0: //crc-8
         ui->lineE_crc->setInputMask(QString{2,'H'});
         ui->lineE_crc->setMaxLength(2);
-        ui->lineE_crc->setText("70");
+        ui->lineE_crc->setText("07");
             break;
         case 1: //16
             ui->lineE_crc->setInputMask(QString{4,'H'});
             ui->lineE_crc->setMaxLength(4);
-            ui->lineE_crc->setText("70");
+            ui->lineE_crc->setText("8005");
             break;
         case 2: //32
             ui->lineE_crc->setInputMask(QString{8,'H'});
             ui->lineE_crc->setMaxLength(6);
-            ui->lineE_crc->setText("70");
+            ui->lineE_crc->setText("04C11DB7");
             break;
         case 3: //64
             ui->lineE_crc->setInputMask(QString{16,'H'});
             ui->lineE_crc->setMaxLength(2);
-            ui->lineE_crc->setText("70");
+            ui->lineE_crc->setText("42F0E1EBA9EA3693");
             break;
         default:
             ui->lineE_crc->setInputMask(QString{2,'H'});
             ui->lineE_crc->setMaxLength(2);
-            ui->lineE_crc->setText("70");
+            ui->lineE_crc->setText("07");
     }
 }
+
+
+
+
 

@@ -16,6 +16,7 @@ chartWindow::chartWindow(std::vector<SimulationData> & simDataVector, QWidget *p
 {
     ui->setupUi(this);
     setupMenuButtons();
+    setupMenus();
 
     ui->pBtn_leftMenu->setIcon(icon_leftArrow);
     ui->pBtn_rightMenu->setIcon(icon_rightArrow);
@@ -80,12 +81,22 @@ void chartWindow::drawChart()
 
         for(auto line : data)
         {
-            series->append(line.getCodeDimension(), (line.*func_ptr)() );
+            double yVal = (line.*func_ptr)();
+            double xVal = line.getCodeDimension();
+            //scaling
+            double yFactor = ui->sBox_y_scale->value();
+            yVal = yVal / yFactor;
+            double xFactor = ui->sBox_x_scale->value();
+            xVal = xVal / xFactor;
+
+            series->append(xVal, yVal);
         }
 
         chart.addSeries(series);
         series->attachAxis(&axisX);
         series->attachAxis(&axisY);
+
+        series->setName( QString::fromStdString(elem->getName()) );
     }
 }
 
@@ -116,13 +127,11 @@ void chartWindow::setupMenuButtons()
     animation_pBtn_rightMenu = new QPropertyAnimation(ui->stackedW_right, "maximumWidth");
     animation_pBtn_rightMenu->setDuration(300);  // Czas trwania animacji
     animation_pBtn_rightMenu->setEasingCurve(QEasingCurve::InOutQuad);
+
 }
 
 void chartWindow::setupChart()
 {
-
-    //chart.legend()->hide();
-    chart.setTitle("Poki co jeden");
 
     axisX.setTitleText("code dimension");
 
@@ -149,6 +158,17 @@ void chartWindow::setupChart()
 
 }
 
+void chartWindow::setupMenus()
+{
+    rightMenuVisible = true;
+    leftMenuVisible = true;
+    /*
+    rightMenuVisible = false;
+    leftMenuVisible = false;
+    ui->stackedW_left->setMaximumWidth(0);
+    ui->stackedW_right->setMaximumWidth(0);
+*/
+}
 
 void chartWindow::on_actionLegend_Menu_triggered()
 {
@@ -212,37 +232,84 @@ void chartWindow::on_listW_availableSeries_itemSelectionChanged()
 
 void chartWindow::on_cBox_yAxis_currentIndexChanged(int index)
 {
+    QString axisLabel;
+
+    //powinienem napisac enum z opcjami, i na podstawie enum uzupelnic comboBox
     switch(ui->cBox_yAxis->currentIndex())
     {
     case 0: //total sended
         func_ptr = & TransmissionStruct::getTotalSendedCodewords;
+        axisLabel = "Total sended codewords";
         break;
     case 1: //nak
         func_ptr = & TransmissionStruct::getNakCounter;
+        axisLabel = "NAK number";
         break;
     case 2: //ack
         func_ptr = & TransmissionStruct::getAckCounter;
+        axisLabel = "ACK number";
         break;
     case 3: //retransmitted
         func_ptr = & TransmissionStruct::getRetransmissionCounter;
+        axisLabel = "Retransmitted codewords";
         break;
     case 4: //failed
         func_ptr = & TransmissionStruct::getFailedTransmissionCounter;
+        axisLabel = "Lost codewords";
         break;
     case 5: //wrong detected false
         func_ptr = & TransmissionStruct::getWrongDetectedFalseCodewords;
+        axisLabel = "Undetected corrupted codewords";
         break;
     case 6: //wrong detected positive
         func_ptr = & TransmissionStruct::getWrongDetectedPositiveCodewords;
+        axisLabel = "Valid codewords detected as corrupted";
         break;
     case 7:     //corect sended
         func_ptr = & TransmissionStruct::getCorrectSendedCodewords;
+        axisLabel = "Correct sended codewords";
         break;
-    case 8:     //corect sended
+    case 8:     //Retransmitted
         func_ptr = & TransmissionStruct::getRetransmittedBitsNumber;
+        axisLabel = "Retransmitted bits";
         break;
     }
 
+    axisY.setTitleText(axisLabel);  //setting apprioiate Y axis label
     drawChart();
+}
+
+
+void chartWindow::on_sBox_y_start_valueChanged(int arg1)
+{
+    axisY.setMin(arg1);
+    //drawChart();
+}
+
+
+void chartWindow::on_sBox_y_stop_valueChanged(int arg1)
+{
+    axisY.setMax(arg1);
+    //drawChart();
+}
+
+
+void chartWindow::on_sBox_y_scale_valueChanged(int arg1)
+{
+    drawChart();
+}
+
+
+void chartWindow::on_sBox_x_start_valueChanged(int arg1)
+{
+    axisX.setMin(arg1);
+    //drawChart();
+}
+
+
+void chartWindow::on_sBox_x_stop_valueChanged(int arg1)
+{
+    axisX.setMax(arg1);
+    //drawChart();
 }
 
