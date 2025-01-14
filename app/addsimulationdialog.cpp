@@ -1,7 +1,7 @@
 #include "addsimulationdialog.h"
 #include "ui_addsimulationdialog.h"
 
-AddSimulationDialog::AddSimulationDialog(QWidget *parent, QString * name, std::pair<uint,uint> * simRange, bool * isAccepted)
+AddSimulationDialog::AddSimulationDialog(QWidget *parent, QString * name, std::pair<unsigned int,unsigned int> * simRange, bool * isAccepted)
     : QDialog(parent)
     , ui(new Ui::AddSimulationDialog),
     name{name},

@@ -12,7 +12,7 @@ class AddSimulationDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddSimulationDialog(QWidget *parent, QString * name, std::pair<uint,uint> * simRange, bool * isAccepted);
+    explicit AddSimulationDialog(QWidget *parent, QString * name, std::pair<unsigned int,unsigned int> * simRange, bool * isAccepted);
     ~AddSimulationDialog();
 
 private slots:
@@ -33,7 +33,7 @@ private slots:
 private:
     Ui::AddSimulationDialog *ui;
     QString * name;
-    std::pair<uint,uint> * simRange;
+    std::pair<unsigned int,unsigned int> * simRange;
     bool * isAccepted;
 };
 
