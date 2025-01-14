@@ -170,32 +170,6 @@ void chartWindow::setupMenus()
 */
 }
 
-void chartWindow::on_actionLegend_Menu_triggered()
-{
-    if( ! leftMenuVisible)
-        on_pBtn_leftMenu_clicked();
-
-    ui->stackedW_left->setCurrentIndex(1);
-}
-
-
-void chartWindow::on_actionAxis_Menu_triggered()
-{
-    if( ! leftMenuVisible)
-        on_pBtn_leftMenu_clicked();
-
-    ui->stackedW_left->setCurrentIndex(0);
-}
-
-
-void chartWindow::on_actionData_Series_triggered()
-{
-    if( ! leftMenuVisible)
-        on_pBtn_leftMenu_clicked();
-
-    ui->stackedW_left->setCurrentIndex(2);
-}
-
 
 void chartWindow::on_listW_availableSeries_itemDoubleClicked(QListWidgetItem *item)
 {

@@ -26,9 +26,6 @@ public slots:
 private slots:
     void on_pBtn_leftMenu_clicked();
     void on_pBtn_rightMenu_clicked();
-    void on_actionLegend_Menu_triggered();
-    void on_actionAxis_Menu_triggered();
-    void on_actionData_Series_triggered();
     void on_listW_availableSeries_itemDoubleClicked(QListWidgetItem *item);
     void on_listW_availableSeries_itemSelectionChanged();
 
